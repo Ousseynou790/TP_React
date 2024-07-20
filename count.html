@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css"
+    crossorigin="anonymous"
+    />
+</head>
+<body>
+    <div id="root"></div>
+<script src="react/react.js"></script>
+<script src="react/react-dom.js"></script>
+<script src="react/babel.js"></script>
+<script type="text/babel">
+function Counter() {
+    const [count, setCount] = React.useState(0);
+    const [counts, setCounts] = React.useState(0);
+
+    return (
+        <div>
+            <button onClick={() => setCount(count + 1)}>
+                <i class="fas fa-thumbs-up"></i> {count}
+            </button>
+            &nbsp;
+            <button onClick={() => setCounts(counts + 1)}>
+                <i class="fas fa-thumbs-down"></i> {counts}
+            </button>
+        </div>
+    );
+}
+
+function App() {
+    return (
+        <div>
+            <p>Le Cours de Réact est Facile</p>
+            <Counter />
+            <p>Le Cours de mongodb est difficile</p>
+            <Counter />
+            <p>Le cours de IPDL est trop simple</p>
+            <Counter />
+        </div>
+    );
+}
+
+ReactDOM.render(<App />, document.querySelector("#root")); 
+</script>
+</body>
+</html>

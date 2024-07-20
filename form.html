@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire</title>
+</head>
+<body>
+    <div id="root"></div>
+<script src="react/react.js"></script>
+<script src="react/react-dom.js"></script>
+<script src="react/babel.js"></script>
+<script type="text/babel">
+
+    function Myform() {
+        const [prenom, setPrenom] = React.useState(" ");
+        const [nom, setNom] = React.useState(" ");
+        const PrenomModifie = event => {
+            setPrenom(event.target.value);
+        };
+        const NomModifie = event => {
+            setNom(event.target.value);
+        };
+        const handleSubmit = event => {
+            alert(`Bonjour : ${prenom} ${nom}`);
+            event.preventDefault();
+        };
+        return(
+            <form onSubmit={handleSubmit}>
+                <p>Prénom</p>
+                <input type="text" onChange={PrenomModifie} value={prenom} />
+                <br/>
+                <p>Nom</p>
+                <input type="text" onChange={NomModifie} value={nom} />
+                <br/>
+                <br/>
+                <input type="submit" value="Appuyez moi"/>
+            </form>
+        );
+    }
+    function App() {
+        return(
+           <Myform/> 
+        );
+    }
+ReactDOM.render(<App />, document.querySelector("#root"));  
+</script>
+</body>
+</html>

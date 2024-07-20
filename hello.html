@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+<div id="root"></div>
+<script src="react/react.js"></script>
+<script src="react/react-dom.js"></script>
+<script src="react/babel.js"></script>
+<script type="text/babel">
+const teams = [
+{
+  name: "barcelone",
+  trophy: "7",
+  country: "Italy"
+},
+{
+  name: "real",
+  trophy: "5",
+  country: "spain"
+},
+{
+  name: "PSG",
+  trophy: "9",
+  country: "France"
+}
+]
+function App() {
+  return (
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th scope="col" >NAME</th>
+        <th scope="col" >TROPHIES</th>
+        <th scope="col" >COUNTRY</th>
+      </tr>
+      </thead>
+      <tbody>
+        {teams.map(t => (
+          <Team name={t.name} trophy={t.trophy} country={t.country}></Team>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+function Team(props) {
+  return (
+      <tr>
+        <td>{props.name}</td>
+        <td>{props.trophy}</td>
+        <td>{props.country}</td>
+      </tr>
+  );
+}
+ReactDOM.render(<App />, document.querySelector("#root"));
+
+</script>
+</body>
+</html>
